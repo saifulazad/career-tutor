@@ -9,8 +9,8 @@ def lambda_handler(event, context):
     source = "{} <{}>".format("Career Tutor", 'admin@fractalslab.com')
     subject = "Thanks to reach us."
 
-    html_body = f"""
-            <h3>Hi {name}, Thanks for your comment. We will respond as soon as possible.</h3>
+    text_body = f"""
+            Hi {name}, Thanks for your comment. We will respond as soon as possible.
         """
     destination = {
         "ToAddresses": [to_email],
@@ -20,7 +20,8 @@ def lambda_handler(event, context):
     message = {
         "Subject": {"Data": subject},
         "Body": {
-            "Html": {"Data": html_body, "Charset": "UTF-8"},
+            "Text": {"Data": text_body, "Charset": "UTF-8"},
+            # "Html": {"Data": html_body, "Charset": "UTF-8"},
         },
     }
     reply_addresses = ['admin@fractalaslab.com']
