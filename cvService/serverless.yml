@@ -12,9 +12,6 @@
 # Happy Coding!
 
 service: cvservice
-# app and org for use with dashboard.serverless.com
-app: my-python-rest-api-app
-org: mamun
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
