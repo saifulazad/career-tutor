@@ -1,17 +1,18 @@
 import boto3
 import json
-
+import uuid
 
 def lambda_handler(event, context):
-    dynamodb = boto3.resource('dynamodb', region_name='ap-southeast-1')
+    dynamodb = boto3.resource('dynamodb')
 
-    table = dynamodb.Table('usersTable')
+    table = dynamodb.Table('career-tutor-contact-us')
     data = json.loads(event["body"])
     email = data["email"]
     name = data["name"]
     comment = data["comment"]
     phone = data["phone"]
     response = table.put_item(Item={
+        "id": str(uuid.uuid4()),
         "email": email, "name": name,
         "comment": comment, "phone":phone
     })

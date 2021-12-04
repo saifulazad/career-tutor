@@ -21,13 +21,11 @@ provider:
   name: aws
   runtime: python3.8
   lambdaHashingVersion: 20201221
-
-  # you can overwrite defaults here
   stage: dev
   region: ap-southeast-1
   endpointType: REGIONAL
   iam:
-    role: arn:aws:iam::940443069190:role/dynamo_db_and_lambda_fullaccess
+    role: arn:aws:iam::940443069190:role/lambda-career-tutor-dev
 
 
 functions:
@@ -37,17 +35,17 @@ functions:
     description: get image signed url for s3 upload
     events:
       - http:
-          path: /
+          path: /upload-cv
           method: get
           cors: true
 
   save-user-contact-information:
     name: save-user-contact-information
-    handler: handler.lambda_handler
+    handler: save_contact_us.lambda_handler
     description: save user feedback on dynamodb
     events:
       - http:
-          path: /
+          path: /save-contact
           method: post
           cors: true
 
@@ -56,24 +54,31 @@ functions:
     handler: send_email.lambda_handler
     description: send email
     events:
-      - existingDynamoStream:
-          tableName: usersTable
-          streamType: NEW_IMAGE
+      - stream:
+          type: dynamodb
+          batchSize: 1
+          maximumRetryAttempts: 3
           startingPosition: LATEST
+          arn:
+            Fn::GetAtt:
+              - ContactUsTable
+              - StreamArn
 
 resources:
   Resources:
-    usersTable:
+    ContactUsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: usersTable
+        TableName: career-tutor-contact-us
         AttributeDefinitions:
-          - AttributeName: email
+          - AttributeName: id
             AttributeType: S
         KeySchema:
-          - AttributeName: email
+          - AttributeName: id
             KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+        StreamSpecification:
+          StreamViewType: NEW_IMAGE
 
