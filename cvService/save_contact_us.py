@@ -2,6 +2,7 @@ import boto3
 import json
 import uuid
 
+
 def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
 
@@ -10,11 +11,10 @@ def lambda_handler(event, context):
     email = data["email"]
     name = data["name"]
     comment = data["comment"]
-    phone = data["phone"]
     response = table.put_item(Item={
         "id": str(uuid.uuid4()),
         "email": email, "name": name,
-        "comment": comment, "phone":phone
+        "comment": comment, "phone": data["phone"] if "phone" in data else []
     })
     return {
         'headers': {
