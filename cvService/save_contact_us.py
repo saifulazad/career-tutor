@@ -12,6 +12,15 @@ def lambda_handler(event, context):
     email = data["email"]
     name = data["name"]
     comment = data["comment"]
+    phone = data.get("phone", "")
+    response = {
+        'headers': {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*"
+        },
+        'body': {'error': 'Invalid reCapcha token.'},
+        'statusCode': 200,
+    }
     url = "https://www.google.com/recaptcha/api/siteverify"
     params = {
         "secret": "6LeBJ30dAAAAANm4aX9wRTzSnbk-9d7iBMsJkwi9",
@@ -20,15 +29,10 @@ def lambda_handler(event, context):
     verify_rs = requests.post(url, data=params)
     recaptcha_rs = json.loads(verify_rs.text)
     if recaptcha_rs["success"] is True:
-        table.put_item(Item={
+
+        response['body'] = table.put_item(Item={
             "id": str(uuid.uuid4()),
             "email": email, "name": name,
-            "comment": comment, "phone": data["phone"] if "phone" in data else ""
+            "comment": comment, "phone": phone
         })
-    return {
-        'headers': {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "*"
-        },
-        'statusCode': 200,
-    }
+    return response
