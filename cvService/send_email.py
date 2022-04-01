@@ -2,9 +2,11 @@ import boto3
 
 
 def lambda_handler(event, context):
-    data = (event['Records'][0]['dynamodb']['NewImage'])
-    to_email = data['email']['S']
-    name = data['name']['S']
+    # data = (event['Records'][0]['dynamodb']['NewImage'])
+    # to_email = data['email']['S']
+    # name = data['name']['S']
+    name = "Azad"
+    to_email = "asas"
     client = boto3.client('ses')
     source = "{} <{}>".format("Career Tutor", 'admin@fractalslab.com')
     subject = "Thanks to reach us."
