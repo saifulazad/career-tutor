@@ -32,7 +32,7 @@ jobs:
       env:
         CONFIG_CONTENT: ${{ secrets.CONFIG_CONTENT }}
       run: |
-          echo CONFIG_CONTENT | base64 --decode > cvService/config.py
+          echo $CONFIG_CONTENT | base64 --decode > cvService/config.py
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
