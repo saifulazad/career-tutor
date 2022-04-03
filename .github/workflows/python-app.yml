@@ -7,7 +7,7 @@ on:
   push:
     branches: [ saiful_wip ]
   pull_request:
-    branches: [ saiful_wip ]
+    branches: [ mamun_wip ]
 
 permissions:
   contents: read
