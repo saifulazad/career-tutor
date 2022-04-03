@@ -1,2 +1,3 @@
 import sys
-sys.path.append('cvService')
+
+sys.path.append("cvService")

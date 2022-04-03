@@ -1,24 +1,21 @@
-import datetime
 import botocore.session
-from botocore.stub import Stubber, ANY
+from botocore.stub import Stubber
 
 
 def test_a():
-    ses = botocore.session.get_session().create_client('ses')
+    ses = botocore.session.get_session().create_client("ses")
     stubber = Stubber(ses)
 
-    response = {
-        'MessageId': ''
-    }
-    stubber.add_response('send_email', response)
-    source = "{} <{}>".format("Career Tutor", 'admin@fractalslab.com')
+    response = {"MessageId": ""}
+    stubber.add_response("send_email", response)
+    source = "{} <{}>".format("Career Tutor", "admin@fractalslab.com")
     subject = "Thanks to reach us."
 
-    text_body = f"""
+    text_body = """
                 Hi azad, Thanks for your comment. We will respond as soon as possible.
             """
     destination = {
-        "ToAddresses": ['to_email'],
+        "ToAddresses": ["to_email"],
         "CcAddresses": [],
         "BccAddresses": [],
     }
@@ -29,18 +26,19 @@ def test_a():
             # "Html": {"Data": html_body, "Charset": "UTF-8"},
         },
     }
-    reply_addresses = ['admin@fractalaslab.com']
+    reply_addresses = ["admin@fractalaslab.com"]
 
     # response = client.send_email(
 
     with stubber:
-        service_response = ses.send_email(Source=source,
-                                          Destination=destination,
-                                          Message=message,
-                                          ReplyToAddresses=reply_addresses,
-                                          )
-        print('A' * 100)
+        service_response = ses.send_email(
+            Source=source,
+            Destination=destination,
+            Message=message,
+            ReplyToAddresses=reply_addresses,
+        )
+        print("A" * 100)
         print(service_response)
 
-        print('A' * 100)
+        print("A" * 100)
     assert service_response == response
