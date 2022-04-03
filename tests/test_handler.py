@@ -1,6 +1,6 @@
 import datetime
-import botocore.session
-from botocore.stub import Stubber, ANY
+# import botocore.session
+# from botocore.stub import Stubber, ANY
 
 
 def test_a():

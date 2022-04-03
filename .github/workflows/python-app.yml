@@ -5,7 +5,7 @@ name: Python application
 
 on:
   push:
-    branches: [ saiful_wip ]
+    branches: [ mamun_wip ]
   pull_request:
     branches: [ mamun_wip ]
 
