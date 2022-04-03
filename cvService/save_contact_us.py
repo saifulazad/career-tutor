@@ -2,7 +2,7 @@ import json
 import uuid
 
 import boto3
-from recapcha_token_validator import ReCapchaTokenValidator
+from recapcha_token_validator import ReCaptchaTokenValidator
 from response import Response
 
 
@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     name = data["name"]
     comment = data["comment"]
     phone = data.get("phone", "")
-    validation = ReCapchaTokenValidator()
+    validation = ReCaptchaTokenValidator()
     if validation.is_valid(data["token"]):
         dynamodb = boto3.resource("dynamodb")
         table = dynamodb.Table("career-tutor-contact-us")

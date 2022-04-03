@@ -5,7 +5,7 @@ import requests
 
 
 class BaseReCaptchaTokenValidator:
-    def is_valid(self):
+    def is_valid(self, token):
         raise NotImplementedError
 
 
