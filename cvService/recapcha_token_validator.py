@@ -1,14 +1,15 @@
-import requests
 import json
+
 import config
+import requests
 
-class BaseReCapchaTokenValidator:
 
+class BaseReCaptchaTokenValidator:
     def is_valid(self):
         raise NotImplementedError
 
 
-class ReCapchaTokenValidator(BaseReCapchaTokenValidator):
+class ReCaptchaTokenValidator(BaseReCaptchaTokenValidator):
     fix_token = config.FIXED_RECAPTCHA_SECRET
 
     def is_valid(self, token):

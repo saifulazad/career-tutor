@@ -7,8 +7,8 @@ def lambda_handler(event, context):
     # name = data['name']['S']
     name = "Azad"
     to_email = "asas"
-    client = boto3.client('ses')
-    source = "{} <{}>".format("Career Tutor", 'admin@fractalslab.com')
+    client = boto3.client("ses")
+    source = "{} <{}>".format("Career Tutor", "admin@fractalslab.com")
     subject = "Thanks to reach us."
 
     text_body = f"""
@@ -26,7 +26,7 @@ def lambda_handler(event, context):
             # "Html": {"Data": html_body, "Charset": "UTF-8"},
         },
     }
-    reply_addresses = ['admin@fractalaslab.com']
+    reply_addresses = ["admin@fractalaslab.com"]
 
     response = client.send_email(
         Source=source,
@@ -38,7 +38,5 @@ def lambda_handler(event, context):
     return response.get("MessageId")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     lambda_handler({}, {})
-
-

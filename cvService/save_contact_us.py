@@ -1,8 +1,9 @@
-import boto3
 import json
 import uuid
-from response import Response
+
+import boto3
 from recapcha_token_validator import ReCapchaTokenValidator
+from response import Response
 
 
 def lambda_handler(event, context):
@@ -13,14 +14,20 @@ def lambda_handler(event, context):
     phone = data.get("phone", "")
     validation = ReCapchaTokenValidator()
     if validation.is_valid(data["token"]):
-        dynamodb = boto3.resource('dynamodb')
-        table = dynamodb.Table('career-tutor-contact-us')
-        table.put_item(Item={
-            "id": str(uuid.uuid4()),
-            "email": email, "name": name,
-            "comment": comment, "phone": phone
-        })
+        dynamodb = boto3.resource("dynamodb")
+        table = dynamodb.Table("career-tutor-contact-us")
+        table.put_item(
+            Item={
+                "id": str(uuid.uuid4()),
+                "email": email,
+                "name": name,
+                "comment": comment,
+                "phone": phone,
+            }
+        )
         response = Response(status_code=200, payload={})
     else:
-        response = Response(status_code=400, payload={'error': 'Invalid reCapcha token.'})
+        response = Response(
+            status_code=400, payload={"error": "Invalid reCapcha token."}
+        )
     return response.render()

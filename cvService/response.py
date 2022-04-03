@@ -3,9 +3,9 @@ import json
 
 class Response:
     defaults = {
-        'headers': {
+        "headers": {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "*"
+            "Access-Control-Allow-Methods": "*",
         },
     }
 
@@ -17,5 +17,7 @@ class Response:
         if self.status_code == 200:
             if self.payload is None:
                 self.payload = {}
-        return {**self.defaults, ** {'statusCode': self.status_code, 'body': json.dumps(self.payload
-                                                                                        )}}
+        return {
+            **self.defaults,
+            **{"statusCode": self.status_code, "body": json.dumps(self.payload)},
+        }
