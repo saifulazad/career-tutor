@@ -3,11 +3,7 @@
 
 name: Python application
 
-on:
-  push:
-    branches: [ saiful_wip ]
-  pull_request:
-    branches: [ mamun_wip ]
+on: [push, pull_request]
 
 permissions:
   contents: read

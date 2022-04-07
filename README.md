@@ -2,7 +2,6 @@
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
 <h3 align="center">Serverless Project</h3>
 
   <p align="center">
@@ -17,22 +16,23 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+        <a href="#why-different">Why this repo is different than other typical github repos</a>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    <li><a href="#test">Deployment</a></li>
-      <ul>
-        <li><a href="#gitHub-build">GitHub Build</a></li>
-        <li><a href="#deploy">Serverless Deploy</a></li>
-      </ul>
-    <li><a href="#test">Test</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+        <a href="">AWS system block diagram</a>
+        </li>
+    <li>
+<a href="">Configuration</a>
+</li>
+    <li>
+<a href="">Continuous integration (CI)</a>
+</li>
+    <li>
+<a href="">Deployment</a>
+</li>
+    <li>
+<a href="">Contact us</a></li>
+
   </ol>
 </details>
 
@@ -40,37 +40,33 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://careertutor.fractalslab.com/)
 
 ### Why this repository different from other difficult repository?
 
-Because we are using:
+We are using:
 
-* [Python PEP8 standard (black, isort flake8)](https://github.com/saifulazad/career-tutor/blob/master/.pre-commit-config.yaml)
+* [Python PEP8 standard (black, isort, flake8)](https://github.com/saifulazad/career-tutor/blob/master/.pre-commit-config.yaml)
 * [Unit test coverage](https://github.com/saifulazad/career-tutor/tree/master/tests)
-* [CI integration by github-action](https://github.com/saifulazad/career-tutor/blob/master/.github/workflows/python-app.yml) 
+* [CI integration by github-action](https://github.com/saifulazad/career-tutor/blob/master/.github/workflows/python-app.yml)
 
 
+## AWS system block diagram
 
-### Built With
+[![Product Name Screen Shot][product-screenshot]](https://careertutor.fractalslab.com/)
 
-This project build using AWS services.
-
-* [Amazon Route 53](https://aws.amazon.com/route53/)
-* [CloudFront](https://aws.amazon.com/cloudfront/getting-started/S3/)
-* [S3 Bucket](https://aws.amazon.com/s3/)
-* [Amazon API Gateway](https://aws.amazon.com/api-gateway/)
-* [AWS Lambda](https://aws.amazon.com/lambda/)
-* [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/)
-
+## Configuration
+- create a `config.py` folder under `cvService` folder
+- Paste the content in `config.py`
+    ~~~
+    RECAPTCHA_SECRET = '6LeBJ30dAAAAANm4aX9wRTzSnbk-9d7iBMsJkwi9'
+    FIXED_RECAPTCHA_SECRET = '82a83229-1b77-4567-89be-72e137676de7'
+    ~~~
 
 ## Getting Started
 
-This is a simple serverless project using AWS services. First create a s3 bucket for deploying our static content
-like html, css and js files. Create cloud font for redirect website url http to https. We need two API endpoints for 
-POST our data.
+This is a simple serverless project using AWS services. First create a s3 bucket for deploying our static content like
+html, css and js files. Create cloud font for redirect website url http to https. We need two API endpoints for POST our
+data.
 
 #### Host a Static Website
 
@@ -115,7 +111,8 @@ Credentials are stored in INI format in ~_/.aws/credentials_, which you can edit
 
 ### GitHub Build
 
-GitHub-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. For more information, see
+GitHub-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. For more
+information, see
 [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions)
 
 ### Deploy
@@ -157,13 +154,10 @@ contributions you make are **greatly appreciated**.
 <!-- LICENSE -->
 
 <!-- CONTACT -->
- 
+
 ## Contact
 
 Saiful Azad - [mr.saiful.azad@gmail.com](mr.saiful.azad@gmail.com)
-
-
-
 
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
