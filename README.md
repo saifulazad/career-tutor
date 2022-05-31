@@ -58,8 +58,8 @@ We are using:
 - create a `config.py` folder under `cvService` folder
 - Paste the content in `config.py`
     ~~~
-    RECAPTCHA_SECRET = '6LeBJ30dAAAAANm4aX9wRTzSnbk-9d7iBMsJkwi9'
-    FIXED_RECAPTCHA_SECRET = '82a83229-1b77-4567-89be-72e137676de7'
+    RECAPTCHA_SECRET = ***********
+    FIXED_RECAPTCHA_SECRET = *********** 
     ~~~
 
 ## Getting Started
