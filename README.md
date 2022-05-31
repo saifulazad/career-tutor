@@ -54,13 +54,19 @@ We are using:
 
 [![Product Name Screen Shot][product-screenshot]](https://careertutor.fractalslab.com/)
 
-## Configuration
-- create a `config.py` folder under `cvService` folder
-- Paste the content in `config.py`
-    ~~~
-    RECAPTCHA_SECRET = ***********
-    FIXED_RECAPTCHA_SECRET = *********** 
-    ~~~
+[//]: # (## Configuration)
+
+[//]: # (- create a `config.py` folder under `cvService` folder)
+
+[//]: # (- Paste the content in `config.py`)
+
+[//]: # (    ~~~)
+
+[//]: # (    RECAPTCHA_SECRET = ***********)
+
+[//]: # (    FIXED_RECAPTCHA_SECRET = *********** )
+
+[//]: # (    ~~~)
 
 ## Getting Started
 
