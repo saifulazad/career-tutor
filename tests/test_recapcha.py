@@ -8,7 +8,7 @@ from cvService.config import FIXED_RECAPTCHA_SECRET
 from cvService.recapcha_token_validator import ReCaptchaTokenValidator
 
 
-class TestRecapcha(unittest.TestCase):
+class TestRecaptcha(unittest.TestCase):
     @patch.object(requests, "post")
     def test_is_valid_success(self, mock_post):
         validator = ReCaptchaTokenValidator()

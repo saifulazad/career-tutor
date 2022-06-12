@@ -41,7 +41,7 @@
 <!-- ABOUT THE PROJECT -->
 
 
-### Why this repository different from other difficult repository?
+## Why this repository different from other difficult repository?
 
 We are using:
 
