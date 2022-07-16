@@ -4,11 +4,6 @@ from unittest.mock import patch
 
 import requests
 
-
-
-
-
-
 from cvService.config import FIXED_RECAPTCHA_SECRET
 from cvService.recapcha_token_validator import ReCaptchaTokenValidator
 
