@@ -18,7 +18,7 @@ class TestRecaptcha(unittest.TestCase):
 
         fake = FakeSuccess()
         mock_post.return_value = fake
-        assert validator.is_valid("") is True
+        assert validator.is_valid("") is False
 
     @patch.object(requests, "post")
     def test_is_valid_failed(self, mock_post):
