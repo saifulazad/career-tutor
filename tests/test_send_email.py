@@ -17,19 +17,21 @@ class TestSESSendEmail(unittest.TestCase):
         stubber.add_response("send_email", response)
         stubber.activate()
         mock_client.return_value = stubbed_client
-        assert lambda_handler(event={
-            "Records": [
-                {
-                    "dynamodb": {
-                        "NewImage": {
-                            "email": {
-                                "S": "muazzem.mamun@gmail.com"
+        assert (
+            lambda_handler(
+                event={
+                    "Records": [
+                        {
+                            "dynamodb": {
+                                "NewImage": {
+                                    "email": {"S": "muazzem.mamun@gmail.com"},
+                                    "name": {"S": "Mamun"},
+                                },
                             },
-                            "name": {
-                                "S": "Mamun"
-                            },
-                        },
-                    },
-                }
-            ]
-        }, context={}) == ""
+                        }
+                    ]
+                },
+                context={},
+            )
+            == ""
+        )

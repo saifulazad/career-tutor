@@ -1,7 +1,19 @@
 import json
 
 
+
+
+
+
+
+
+
+
+
+
+
 class Response:
+
     defaults = {
         "headers": {
             "Access-Control-Allow-Origin": "*",
