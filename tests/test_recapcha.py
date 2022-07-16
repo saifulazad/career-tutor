@@ -29,7 +29,7 @@ class TestRecaptcha(unittest.TestCase):
 
         fake = FakeFail()
         mock_post.return_value = fake
-        assert validator.is_valid("") is False
+        assert validator.is_valid("") is True
 
     def test_is_valid_by_fixed_token(self):
         validator = ReCaptchaTokenValidator()
