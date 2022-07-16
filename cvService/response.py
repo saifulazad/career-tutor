@@ -1,17 +1,6 @@
 import json
 
 
-
-
-
-
-
-
-
-
-
-
-
 class Response:
 
     defaults = {
