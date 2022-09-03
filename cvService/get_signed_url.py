@@ -5,6 +5,13 @@ from response import Response
 s3_client = boto3.client("s3", config=Config(signature_version="s3v4"))
 
 
+
+
+
+
+
+
+
 def create_presigned_post(bucket_name, object_name, expiration=3600):
     response = s3_client.generate_presigned_post(
         bucket_name, object_name, ExpiresIn=expiration
